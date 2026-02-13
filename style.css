@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #e6bcbc;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #b30000;
+    letter-spacing: 3px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 ұяшық, әрқайсысы 100px */
+    grid-template-rows: repeat(3, 100px);
+    gap: 2px; /* ұяшықтар арасындағы шекара */
+    margin: 20px auto;
+    position: relative;
+    width: 304px;  /* 100*3 + 2px*2 gap */
+    height: 304px; /* сол сияқты */
+}
+
+/* Ұяшық */
+.cell {
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    width: 100%;   /* grid ұяшығына сай */
+    height: 100%;
+}
+
+/* НОЛИК */
+.circle {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #b30000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* КРЕСТИК */
+.cross::before,
+.cross::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 70px;
+    background: #b30000;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+}
+
+.cross::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cross::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Жеңіс сызығы */
+.line {
+    position: absolute;
+    height: 6px;
+    background: red;
+    transform-origin: left center;
+    border-radius: 5px;
+}
+
+/* Текст */
+.message {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #b30000;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    background: #b30000;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
